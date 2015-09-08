@@ -1,0 +1,21 @@
+tr.edd-vault-stored th {
+	border-left: 4px solid #d54e21;
+	background: #fef7f1;
+}
+
+tr.edd-vault-stored td {
+	background: #fef7f1;
+}
+
+th.column-vault-status {
+	width: 60px;
+	text-align: center;
+}
+
+td.column-vault-status {
+	text-align: center;
+}
+
+span.edd-vault-status-stored {
+	color: #ff0000;
+}
