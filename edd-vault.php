@@ -93,7 +93,7 @@ if( ! class_exists( 'EDD_Vault' ) ) {
 				if( edd_get_option( 'vault_status_column', false ) == true ) {
 					require_once EDD_VAULT_DIR . 'includes/admin/downloads/dashboard-columns.php';
 				}
-				
+
 				require_once EDD_VAULT_DIR . 'includes/admin/downloads/actions.php';
 			}
 		}
@@ -178,6 +178,13 @@ if( ! class_exists( 'EDD_Vault' ) ) {
 					'desc'  => __( 'Select the page to redirect users to if they directly access a stored page.', 'edd-vault' ),
 					'type'  => 'select',
 					'options'   => edd_get_pages()
+				),
+				'vault_notice_text' => array(
+					'id' => 'vault_notice_text',
+					'name' => __( 'Vault Notice Text', 'edd-vault' ),
+					'desc' => __( 'Change the text displayed to admins when viewing a product that is in the vault.', 'edd-vault' ),
+					'type' => 'text',
+					'std' => sprintf( __( 'This %s is currently in the vault.', 'edd-vault' ), edd_get_label_singular( true ) )
 				)
 			);
 

@@ -23,7 +23,7 @@ if( ! defined( 'ABSPATH' ) ) {
  */
 function edd_vault_downloads_query( $query, $atts ) {
 	$terms = get_option( 'edd_vault_term_status' );
-	
+
 	$new_query = array(
 		'meta_query' => array(
 			'relation' => 'OR',
@@ -86,7 +86,7 @@ function edd_vault_display_admin_notice( $the_content ) {
 		$status = array_values( edd_vault_is_stored( $GLOBALS['post']->ID ) );
 
 		if( in_array( true, $status ) ) {
-			$the_content = '<div class="edd-vault-notice"><p>' . sprintf( __( 'This %s is currently in the vault.', 'edd-vault' ), edd_get_label_singular( true ) ) . '</p></div>' . $the_content;
+			$the_content = '<div class="edd-vault-notice"><p>' . edd_get_option( 'vault_notice_text', sprintf( __( 'This %s is currently in the vault.', 'edd-vault' ), edd_get_label_singular( true ) ) ) . '</p></div>' . $the_content;
 		}
 	}
 
