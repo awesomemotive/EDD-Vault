@@ -40,24 +40,26 @@ function edd_vault_is_stored( $item_id = false, $type = 'download' ) {
 
 		$terms = get_option( 'edd_vault_term_status' );
 
-		// Category status
-		$cats = wp_get_post_terms( $item_id, 'download_category' );
+		if( $terms ) {
+			// Category status
+			$cats = wp_get_post_terms( $item_id, 'download_category' );
 
-		if( ! empty( $cats ) ) {
-			foreach( $cats as $cat ) {
-				if( array_key_exists( $cat->term_id, $terms['download_category'] ) ) {
-					$return['download_category'] = true;
+			if( ! empty( $cats ) ) {
+				foreach( $cats as $cat ) {
+					if( array_key_exists( $cat->term_id, $terms['download_category'] ) ) {
+						$return['download_category'] = true;
+					}
 				}
 			}
-		}
 
-		// Tag status
-		$tags = wp_get_post_terms( $item_id, 'download_tag' );
+			// Tag status
+			$tags = wp_get_post_terms( $item_id, 'download_tag' );
 
-		if( ! empty( $tags ) ) {
-			foreach( $tags as $tag ) {
-				if( array_key_exists( $tag->term_id, $terms['download_tag'] ) ) {
-					$return['download_tag'] = true;
+			if( ! empty( $tags ) ) {
+				foreach( $tags as $tag ) {
+					if( array_key_exists( $tag->term_id, $terms['download_tag'] ) ) {
+						$return['download_tag'] = true;
+					}
 				}
 			}
 		}
@@ -68,7 +70,7 @@ function edd_vault_is_stored( $item_id = false, $type = 'download' ) {
 			$return = true;
 		}
 	}
-	
+
 	return $return;
 }
 

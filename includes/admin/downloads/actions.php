@@ -42,7 +42,8 @@ function edd_vault_dashboard_actions( $actions, $item ) {
 	}
 
 	// Build the URL
-	if( edd_vault_is_stored( $id, $type ) ) {
+	$stored = edd_vault_is_stored( $id, $type );
+	if( $stored[$type] == true ) {
 		$class  = 'vault-remove';
 		$label  = __( 'Remove From Vault', 'edd-vault' );
 		$args   = array(
